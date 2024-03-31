@@ -1,0 +1,93 @@
+{
+	"log": {
+		"disabled": false,
+		"level": "info",
+		"timestamp": true
+	},
+	"inbounds": [
+		{
+			"type": "vmess",
+			"sniff": true,
+			"sniff_override_destination": true,
+			"tag": "vmess",
+			"listen": "::",
+			"listen_port": 10000,
+			"users": [
+				{
+					"uuid": "6201c4b6-40f1-4785-9fac-8f5ca707315e",
+					"alterId": 0
+				}
+			],
+			"transport": {
+				"type": "ws",
+				"path": "/10000",
+				"max_early_data":2048,
+				"early_data_header_name": "Sec-WebSocket-Protocol"    
+			}
+		},
+		{
+			"type": "vless",
+			"sniff": true,
+			"sniff_override_destination": true,
+			"tag": "vless",
+			"listen": "::",
+			"listen_port": 20000,
+			"users": [
+				{
+					"uuid": "6201c4b6-40f1-4785-9fac-8f5ca707315e"
+				}
+			],
+			"transport": {
+				"type": "ws",
+				"path": "/20000",
+				"max_early_data":2048,
+				"early_data_header_name": "Sec-WebSocket-Protocol"    
+			}
+		},
+		{
+			"type": "trojan",
+			"sniff": true,
+			"sniff_override_destination": true,
+			"tag": "trojan",
+			"listen": "::",
+			"listen_port": 30000,
+			"users": [
+				{
+					"password": "6201c4b6-40f1-4785-9fac-8f5ca707315e"
+				}
+			],
+			"transport": {
+				"type": "ws",
+				"path": "/30000",
+				"max_early_data":2048,
+				"early_data_header_name": "Sec-WebSocket-Protocol"    
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"type": "direct",
+			"tag": "direct",
+			"domain_strategy": "prefer_ipv4"
+		},
+		{
+			"type": "block",
+			"tag": "block"
+		}
+	],
+	"route": {
+		"rules": [
+			{
+				"protocol": [
+					"quic",
+					"stun"
+				],
+				"outbound": "block"
+			},
+			{
+				"outbound": "direct",
+				"network": "udp,tcp"
+			}
+		]
+	}
+}
