@@ -31,9 +31,15 @@
 ![image](https://user-images.githubusercontent.com/122191366/218304846-6c6f80f9-b5ce-4eeb-82dd-5f201f1fc2bf.png)
 
 * 点击上面的“Run”按钮，待看到右下角出现分享链接和二维码即可代表运行成功
-* 点击 Webview 里面的小铅笔图标，按照步骤绑定域名
+* 点击 Webview 里面的 `replit.dev` 域名部分，复制域名下来备用
 
-![image](https://user-images.githubusercontent.com/122191366/218304873-3aefe218-272f-4a1b-b0ee-0e4552b12db7.png)
+![image](https://github.com/Misaka-blog/replit-sbox/assets/122191366/77591e9c-b30b-4c32-9d18-1f9741b80cb6)
+
+* 修改 `main.sh` 文件的第 8 行，最终结果如下所示
+
+![image](https://github.com/Misaka-blog/replit-sbox/assets/122191366/069f50bc-f325-4a40-95e2-a2c872627121)
+
+* 重新运行，然后点击链接获取节点信息
 
 ## 赞助
 
